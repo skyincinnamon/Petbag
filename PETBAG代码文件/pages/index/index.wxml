@@ -1,0 +1,69 @@
+<!--index.wxml-->
+<!-- 历史面板 -->
+<view class="history-panel {{showHistory ? 'show' : ''}}">
+  <view class="history-header">
+    <view class="history-title-container">
+      <text class="history-title">历史记录</text>
+      <text class="clear-history-text" bindtap="clearHistory">清空</text>
+    </view>
+    <view class="close-btn" bindtap="toggleHistory">×</view>
+  </view>
+  <scroll-view scroll-y class="history-list">
+    <view class="history-item" wx:for="{{historyList}}" wx:key="sessionId" bindtap="selectHistory" data-index="{{index}}">
+      <text class="history-content">{{item.lastMessage}}</text>
+      <text class="history-time">{{item.time}}</text>
+    </view>
+  </scroll-view>
+  <view class="user-profile">
+    <view class="profile-info" bindtap="navigateToProfile">
+      <image class="profile-avatar" src="{{userInfo.avatarUrl || defaultAvatarUrl}}"></image>
+      <text class="profile-name">{{userInfo.nickName || '未登录'}}</text>
+    </view>
+  </view>
+</view>
+
+<!-- 版头 -->
+<view class="header">
+  <view class="menu-icon" bindtap="toggleHistory">≡</view>
+  <view class="title" style="position: relative; left: 243rpx; top: 6rpx">异宠顾问</view>
+  <view class="new-chat-icon" bindtap="newChat">+</view>
+</view>
+
+<!-- 主体内容区域 -->
+<scroll-view scroll-y="true" class="chat-container" id="chatContainer" scroll-into-view="{{scrollIntoView}}" bindtap="onChatAreaTap">
+  <!-- 预置模板区域 -->
+  <view class="template-area" style="width: 712rpx; height: 843rpx; display: block; box-sizing: border-box">
+    <view class="template-item" wx:for="{{templates}}" wx:key="index" bindtap="onTemplateClick" data-content="{{item.example}}">
+      <text class="template-title">{{item.title}}</text>
+      <text class="template-content">{{item.content}}</text>
+      <text class="template-example">{{item.example}}</text>
+    </view>
+  </view>
+
+  <!-- 对话区域 -->
+  <view class="messages" style="position: relative; left: 0rpx; top: 33rpx">
+    <view class="message {{item.type}}-message" wx:for="{{messages}}" wx:key="id" id="{{item.id}}">
+      <image wx:if="{{item.type === 'ai'}}" class="avatar" src="https://img.picui.cn/free/2025/04/18/6802578d9bb77.png" mode="aspectFit"></image>
+      <view class="bubble {{item.type === 'ai' ? 'ai-bubble' : ''}}">
+        <text class="message-text" decode="true">{{item.content}}</text>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+
+<!-- 底部输入区域 -->
+<view class="input-area">
+  <input type="text" 
+         placeholder="请输入您的问题..." 
+         class="input-box"
+         value="{{inputValue}}"
+         bindinput="onInput"/>
+  <button class="send-btn" bindtap="sendMessage">发送</button>
+</view>
+
+<!-- 消息列表 -->
+<scroll-view scroll-y="true" scroll-into-view="{{scrollIntoView}}" class="chat-area" bindtap="onChatAreaTap">
+  <block wx:for="{{messages}}" wx:key="id">
+    
+  </block>
+</scroll-view>

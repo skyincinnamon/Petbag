@@ -1,0 +1,149 @@
+<view class="container">
+  <form bindsubmit="onSubmit">
+    <view class="section" style="width: 710rpx; display: block; box-sizing: border-box; position: relative; left: 20rpx; top: 2rpx">
+      <view class="section-title" style="color: #c8d632">详细信息</view>
+      
+      <!-- 基本信息 -->
+      <view class="form-item">
+        <text class="label">基本信息</text>
+        <view class="picker-group">
+          <picker bindchange="onAgeChange" value="{{ageIndex}}" range="{{ageOptions}}">
+            <view class="picker" style="width: 670rpx; display: block; box-sizing: border-box">年龄：{{userInfo.age || '请选择'}}</view>
+          </picker>
+          <picker bindchange="onGenderChange" value="{{genderIndex}}" range="{{genderOptions}}">
+            <view class="picker" style="width: 670rpx; display: block; box-sizing: border-box">性别：{{userInfo.gender || '请选择'}}</view>
+          </picker>
+          <picker bindchange="onLocationChange" value="{{locationIndex}}" range="{{locationOptions}}">
+            <view class="picker" style="width: 670rpx; display: block; box-sizing: border-box">居住地：{{userInfo.location || '请选择'}}</view>
+          </picker>
+          <picker bindchange="onFamilyChange" value="{{familyIndex}}" range="{{familyOptions}}">
+            <view class="picker" style="width: 670rpx; display: block; box-sizing: border-box">家庭成员：{{userInfo.family || '请选择'}}</view>
+          </picker>
+        </view>
+      </view>
+
+      <!-- 居住环境 -->
+      <view class="form-item">
+        <text class="label">居住环境</text>
+        <view class="picker-group">
+          <picker bindchange="onHouseTypeChange" value="{{houseTypeIndex}}" range="{{houseTypeOptions}}">
+            <view class="picker" style="width: 670rpx; display: block; box-sizing: border-box">住房类型：{{userInfo.houseType || '请选择'}}</view>
+          </picker>
+          <picker bindchange="onAreaChange" value="{{areaIndex}}" range="{{areaOptions}}">
+            <view class="picker" style="width: 670rpx; display: block; box-sizing: border-box">居住面积：{{userInfo.area || '请选择'}}</view>
+          </picker>
+          <picker bindchange="onOutdoorChange" value="{{outdoorIndex}}" range="{{outdoorOptions}}">
+            <view class="picker" style="width: 670rpx; display: block; box-sizing: border-box">是否有户外空间：{{userInfo.hasOutdoor || '请选择'}}</view>
+          </picker>
+        </view>
+      </view>
+
+      <!-- 养宠经验 -->
+      <view class="form-item">
+        <text class="label">养宠经验</text>
+        <view class="picker-group">
+          <picker bindchange="onPetExpChange" value="{{petExpIndex}}" range="{{petExpOptions}}">
+            <view class="picker" style="width: 670rpx; display: block; box-sizing: border-box">是否有养宠经验：{{userInfo.hasPetExp || '请选择'}}</view>
+          </picker>
+          <picker bindchange="onCurrentPetChange" value="{{currentPetIndex}}" range="{{currentPetOptions}}">
+            <view class="picker" style="width: 670rpx; display: block; box-sizing: border-box">目前养宠情况：{{userInfo.currentPet || '请选择'}}</view>
+          </picker>
+          <picker bindchange="onExpDurationChange" value="{{expDurationIndex}}" range="{{expDurationOptions}}">
+            <view class="picker" style="width: 670rpx; display: block; box-sizing: border-box">养宠经验时长：{{userInfo.expDuration || '请选择'}}</view>
+          </picker>
+        </view>
+      </view>
+
+      <!-- 时间与精力 -->
+      <view class="form-item">
+        <text class="label">时间与精力</text>
+        <view class="picker-group">
+          <picker bindchange="onDailyTimeChange" value="{{dailyTimeIndex}}" range="{{dailyTimeOptions}}">
+            <view class="picker" style="width: 670rpx; display: block; box-sizing: border-box">每日可投入时间：{{userInfo.dailyTime || '请选择'}}</view>
+          </picker>
+          <picker bindchange="onFamilyHelpChange" value="{{familyHelpIndex}}" range="{{familyHelpOptions}}">
+            <view class="picker" style="width: 670rpx; display: block; box-sizing: border-box">是否有家人帮助：{{userInfo.hasFamilyHelp || '请选择'}}</view>
+          </picker>
+          <picker bindchange="onHomeFrequencyChange" value="{{homeFrequencyIndex}}" range="{{homeFrequencyOptions}}">
+            <view class="picker" style="width: 670rpx; display: block; box-sizing: border-box">在家频率：{{userInfo.homeFrequency || '请选择'}}</view>
+          </picker>
+          <picker bindchange="onDifficultyChange" value="{{difficultyIndex}}" range="{{difficultyOptions}}">
+            <view class="picker" style="width: 670rpx; display: block; box-sizing: border-box">可接受的难度：{{userInfo.acceptableDifficulty || '请选择'}}</view>
+          </picker>
+        </view>
+      </view>
+
+      <!-- 经济状况 -->
+      <view class="form-item">
+        <text class="label">经济状况</text>
+        <view class="picker-group">
+          <picker bindchange="onMonthlyCostChange" value="{{monthlyCostIndex}}" range="{{monthlyCostOptions}}">
+            <view class="picker" style="width: 670rpx; display: block; box-sizing: border-box">每月可接受支出：{{userInfo.monthlyCost || '请选择'}}</view>
+          </picker>
+        </view>
+      </view>
+
+      <!-- 宠物偏好 -->
+      <view class="form-item">
+        <text class="label">宠物偏好</text>
+        <view class="picker-group">
+          <picker bindchange="onPetTypeChange" value="{{petTypeIndex}}" range="{{petTypeOptions}}">
+            <view class="picker" style="width: 670rpx; display: block; box-sizing: border-box">喜欢的宠物类型：{{userInfo.petType || '请选择'}}</view>
+          </picker>
+          <picker bindchange="onInteractionChange" value="{{interactionIndex}}" range="{{interactionOptions}}">
+            <view class="picker" style="width: 670rpx; display: block; box-sizing: border-box">对宠物互动的期望：{{userInfo.interactionExpectation || '请选择'}}</view>
+          </picker>
+          <picker bindchange="onPersonalityChange" value="{{personalityIndex}}" range="{{personalityOptions}}">
+            <view class="picker" style="width: 670rpx; display: block; box-sizing: border-box">对宠物性格的期望：{{userInfo.personalityExpectation || '请选择'}}</view>
+          </picker>
+          <picker bindchange="onAppearanceChange" value="{{appearanceIndex}}" range="{{appearanceOptions}}">
+            <view class="picker" style="width: 670rpx; display: block; box-sizing: border-box">对宠物外观的偏好：{{userInfo.appearancePreference || '请选择'}}</view>
+          </picker>
+          <picker bindchange="onLifespanChange" value="{{lifespanIndex}}" range="{{lifespanOptions}}">
+            <view class="picker" style="width: 670rpx; display: block; box-sizing: border-box">对宠物寿命的期望：{{userInfo.lifespanExpectation || '请选择'}}</view>
+          </picker>
+        </view>
+      </view>
+
+      <!-- 特殊需求 -->
+      <view class="form-item">
+        <text class="label">特殊需求</text>
+        <view class="picker-group">
+          <picker bindchange="onAllergyChange" value="{{allergyIndex}}" range="{{allergyOptions}}">
+            <view class="picker" style="width: 670rpx; display: block; box-sizing: border-box">是否有过敏史：{{userInfo.hasAllergy || '请选择'}}</view>
+          </picker>
+          <checkbox-group bindchange="onFoodPreferenceChange">
+          
+              <text class="label">对宠物食物的接受程度（多选）</text>
+              <view class="picker" style="width: 670rpx; display: block; box-sizing: border-box; height: 262rpx">
+                  <label class="checkbox" wx:for="{{foodOptions}}" wx:key="index" style="position: relative; left: 24rpx; top: 8rpx; width: 374rpx; display: flex; box-sizing: border-box; height: 60rpx">
+                 
+                  {{item}}
+                  <checkbox style="position: relative; left: 24rpx; top: 0rpx" value="{{checkbBoxValue}}" checked="true" />
+              </label>
+          </view> 
+          </checkbox-group>
+        </view>
+      </view>
+      <!-- 其他信息 -->
+      <view class="form-item">
+        <text class="label">其他信息</text>
+        <view class="picker-group">
+          <picker bindchange="onOtherPetsChange" value="{{otherPetsIndex}}" range="{{otherPetsOptions}}">
+            <view class="picker" style="width: 670rpx; display: block; box-sizing: border-box">是否有其他宠物：{{userInfo.hasOtherPets || '请选择'}}</view>
+          </picker>
+          <picker bindchange="onOtherFactorsChange" value="{{otherFactorsIndex}}" range="{{otherFactorsOptions}}">
+            <view class="picker" style="width: 670rpx; display: block; box-sizing: border-box">是否有其他考虑因素：{{userInfo.hasOtherFactors || '请选择'}}</view>
+          </picker>
+          <picker bindchange="onSpecialEnvChange" value="{{specialEnvIndex}}" range="{{specialEnvOptions}}">
+            <view class="picker" style="width: 670rpx; display: block; box-sizing: border-box">是否愿意提供特殊环境：{{userInfo.willingSpecialEnv || '请选择'}}</view>
+          </picker>
+        </view>
+      </view>
+    </view>
+
+    <view class="button-group" style="height: 95rpx; display: flex; box-sizing: border-box">
+      <button class="save-btn" bindtap="saveProfile" style="width: 710rpx; display: block; box-sizing: border-box; left: 0rpx; top: -20rpx; position: relative; height: 89rpx; line-height: 56rpx">保存</button>
+    </view>
+  </form>
+</view> 

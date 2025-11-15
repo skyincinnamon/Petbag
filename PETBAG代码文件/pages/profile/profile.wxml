@@ -1,0 +1,22 @@
+<view class="container" style="height: 1450rpx; display: flex; box-sizing: border-box">
+<view class="section" style="width: 710rpx; display: block; box-sizing: border-box; position: relative; left: 0rpx; top: -2rpx">
+  <view class="avatar-container" style="width: auto; height: 200rpx; display: flex; box-sizing: border-box">
+    <image class="avatar" src="{{userInfo.avatarUrl}}" mode="aspectFill" style="justify-content: center; align-self: center; display: flex"></image>
+  </view>
+  
+  <view class="nickname-container">
+    <input class="nickname" type="nickname" placeholder="请输入昵称" value="{{userInfo.nickName}}" bindinput="onNickNameInput" style="left: 0rpx; top: 0rpx; text-align: center; width: auto; display: block; box-sizing: border-box" />
+  </view>
+
+  <view class="button-container">
+    <button class="login-button" bindtap="handleLogin" wx:if="{{!isLoggedIn}}" style="background-color: #c8d632; color: white;">上传头像并登录</button>
+    <button class="logout-button" bindtap="handleLogout" wx:else>退出登录</button>
+  </view>
+</view>
+  <form bindsubmit="onSubmit">
+    <view class="section" style="width: 710rpx; display: block; box-sizing: border-box; position: relative; left: 0rpx; top: 0rpx; height: 995rpx">
+      
+      <button class="detail-btn" bindtap="navigateToDetail" style="background-color: #c8d632; color: white; position: relative; left: 0rpx; top: 16rpx">填写个人详细信息</button>
+    </view>
+  </form>
+</view> 

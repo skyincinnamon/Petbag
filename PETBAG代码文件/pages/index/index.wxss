@@ -1,0 +1,406 @@
+/**index.wxss**/
+page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.scrollarea {
+  flex: 1;
+  overflow-y: hidden;
+}
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #aaa;
+  width: 80%;
+}
+
+.userinfo-avatar {
+  overflow: hidden;
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+
+.avatar-wrapper {
+  padding: 0;
+  width: 56px !important;
+  border-radius: 8px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.avatar {
+  display: block;
+  width: 56px;
+  height: 56px;
+}
+
+.nickname-wrapper {
+  display: flex;
+  width: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+  border-top: .5px solid rgba(0, 0, 0, 0.1);
+  border-bottom: .5px solid rgba(0, 0, 0, 0.1);
+  color: black;
+}
+
+.nickname-label {
+  width: 105px;
+}
+
+.nickname-input {
+  flex: 1;
+}
+
+/* 版头样式 */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 88rpx;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.1);
+  z-index: 100;
+}
+
+.menu-icon {
+  font-size: 40rpx;
+  margin-right: 20rpx;
+  color: #c8d632;
+}
+
+.title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #c8d632;
+}
+
+.new-chat-icon {
+  position: absolute;
+  right: 30rpx;
+  font-size: 40rpx;
+  color: #c8d632;
+  cursor: pointer;
+}
+
+/* 主体内容区域 */
+.chat-container {
+  margin-top: 88rpx;
+  height: calc(100vh - 88rpx - 120rpx);
+  padding: 20rpx;
+}
+
+/* 模板区域样式 */
+.template-area {
+  margin-bottom: 20rpx;
+}
+
+.template-item {
+  background: #f5f5f5;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  margin-bottom: 20rpx;
+}
+
+.template-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #333;
+  display: block;
+  margin-bottom: 10rpx;
+}
+
+.template-content {
+  font-size: 26rpx;
+  color: #666;
+  display: block;
+  margin-bottom: 10rpx;
+}
+
+.template-example {
+  font-size: 24rpx;
+  color: #999;
+  display: block;
+}
+
+/* 消息区域样式 */
+.messages {
+  padding: 20rpx 0;
+}
+
+.message {
+  display: flex;
+  margin-bottom: 20rpx;
+  align-items: flex-start;
+}
+
+.message .avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+  background: #c8d632;
+}
+
+.message .bubble {
+  max-width: 70%;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.message-text {
+  display: block;
+  line-height: 1.6;
+}
+
+.ai-bubble {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.ai-message .bubble {
+  background: #f0f0f0;
+  color: #333;
+  padding: 24rpx;
+}
+
+.user-message {
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+
+.user-message .bubble {
+  background: #c8d632;
+  color: #333;
+  padding: 24rpx;
+}
+
+/* 底部输入区域 */
+.input-area {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120rpx;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 30rpx;
+  box-shadow: 0 -2rpx 10rpx rgba(0,0,0,0.1);
+}
+
+.input-box {
+  flex: 1;
+  height: 80rpx;
+  background: #f5f5f5;
+  border-radius: 40rpx;
+  padding: 0 30rpx;
+  font-size: 28rpx;
+}
+
+.send-btn {
+  width: 120rpx !important;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #c8d632;
+  color: #fff;
+  font-size: 28rpx;
+  margin-left: 20rpx;
+  padding: 0;
+}
+
+/* 历史面板样式 */
+.history-panel {
+  position: fixed;
+  left: -50%;
+  top: 0;
+  width: 50%;
+  height: 100vh;
+  background: #fff;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+  transition: left 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.history-panel.show {
+  left: 0;
+}
+
+.history-header {
+  padding: 20rpx;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.history-title-container {
+  display: flex;
+  align-items: center;
+  gap: 10rpx;
+}
+
+.history-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #c8d632;
+  margin-right: 6px;
+}
+
+.clear-history-text {
+  font-size: 20rpx;
+  color: #999;
+  cursor: pointer;
+  padding: 2rpx 8rpx;
+  border: 1px solid #999;
+  border-radius: 16rpx;
+}
+
+.close-btn {
+  font-size: 40rpx;
+  color: #999;
+  padding: 10rpx;
+}
+
+.history-list {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.history-item {
+  padding: 20rpx;
+  border-bottom: 1px solid #eee;
+}
+
+.history-content {
+  font-size: 28rpx;
+  color: #333;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.history-time {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 10rpx;
+  display: block;
+}
+
+.user-profile {
+  padding: 20rpx;
+  border-top: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 30px;
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+  cursor: pointer;
+  margin-left: -10px;
+}
+
+.profile-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  border: 2rpx solid #c8d632;
+}
+
+.profile-name {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.login-btn, .logout-btn {
+  padding: 10rpx 20rpx;
+  font-size: 28rpx;
+  border-radius: 30rpx;
+  color: white;
+  border: none;
+}
+
+.login-btn {
+  background-color: #c8d632;
+}
+
+.logout-btn {
+  background-color: #ff4d4f;
+}
+
+.message-content {
+  padding: 20rpx;
+  border-radius: 16rpx;
+  max-width: 80%;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  line-height: 1.6;
+  font-size: 28rpx;
+}
+
+.message.ai .message-content {
+  background-color: #f8f8f8;
+  margin-left: 20rpx;
+  color: #333;
+}
+
+.message.user .message-content {
+  background-color: #c8d632;
+  color: #333;
+  margin-right: 20rpx;
+}
+
+.pet-name {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20rpx;
+  padding-bottom: 10rpx;
+  border-bottom: 2rpx solid #c8d632;
+}
+
+.section {
+  margin-bottom: 20rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #c8d632;
+  margin-bottom: 10rpx;
+}
+
+.section-content {
+  font-size: 28rpx;
+  color: #666;
+  padding-left: 20rpx;
+  line-height: 1.8;
+}
+
+.section-content.price {
+  color: #ff6b6b;
+  font-weight: bold;
+}
